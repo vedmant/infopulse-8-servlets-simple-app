@@ -33,5 +33,6 @@ public class ServletController extends HttpServlet {
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(view);
         dispatcher.forward(req, resp);
+//        resp.sendRedirect(view);
     }
 }

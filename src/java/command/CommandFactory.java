@@ -14,10 +14,10 @@ public class CommandFactory {
     private Map<String, Command> commands = new HashMap<String, Command>();
 
     private CommandFactory() {
-        commands.put("login", new LoginForm());
-        commands.put("login_send", new Login());
-        commands.put("register", new RegistrationForm());
-        commands.put("register_send", new Registration());
+        commands.put("/auth/login_form", new LoginForm());
+        commands.put("/auth/login", new Login());
+        commands.put("/auth/registration_form", new RegistrationForm());
+        commands.put("/auth/registration", new Registration());
     }
 
     public static CommandFactory getInstance() {
@@ -27,7 +27,13 @@ public class CommandFactory {
     public Command getCommand(HttpServletRequest req) {
         String uri = req.getRequestURI();
 
-        return commands.get(uri);
+        Command command = commands.get(uri);
+
+        if (command != null) {
+            return command;
+        }
+
+        return new NotFound();
     }
 
 }
