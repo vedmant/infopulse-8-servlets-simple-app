@@ -12,8 +12,8 @@
         </tr>
         <c:forEach items="${sessionScope.users}" var="user">
             <tr>
-                <td>$(user.name)</td>
-                <td>$(user.login)</td>
+                <td>${user.name}</td>
+                <td>${user.login}</td>
             </tr>
         </c:forEach>
     </table>

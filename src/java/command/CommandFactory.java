@@ -27,6 +27,8 @@ public class CommandFactory {
     public Command getCommand(HttpServletRequest req) {
         String uri = req.getRequestURI();
 
+        System.out.println(uri);
+
         Command command = commands.get(uri);
 
         if (command != null) {

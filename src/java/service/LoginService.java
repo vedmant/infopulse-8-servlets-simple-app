@@ -4,6 +4,8 @@ import dao.DaoFactory;
 import dao.UserDao;
 import dto.UserDTO;
 
+import java.util.List;
+
 /**
  * Created by vedmant on 1/28/17.
  */
@@ -20,5 +22,9 @@ public class LoginService {
         UserDTO user = userDao.getUserByLogin(login);
 
         return user != null && user.getPassword().equals(password);
+    }
+
+    public List<UserDTO> getAllUsers() {
+        return userDao.getAllUsers();
     }
 }
